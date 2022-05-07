@@ -1,3 +1,22 @@
 .App {
   text-align: center;
 }
+
+.Nav-bar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.Nav-bar li{
+  display: inline-block;
+  margin: 20px;
+}
+.Nav-bar a{
+  text-decoration: none;
+  color: black;
+}
+.Nav-bar a:hover, a:active, a.active{
+  color: orange;
+}
