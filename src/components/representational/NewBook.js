@@ -1,8 +1,11 @@
-import React, {Component} from "react";
+import React, {Component,createRef} from "react";
 
 class NewBook extends Component{
     constructor(props){
         super(props);
+        this.bookName=createRef();
+        this.writer=createRef();
+        this.description=createRef();
 
         // this.state={
         //     bookName:'',
@@ -14,19 +17,23 @@ class NewBook extends Component{
     }
 
     handleSubmit = (e) =>{
-        console.log(this.state);
+        // console.log(this.state);
+        console.log(this.bookName.current.value);
+        console.log(this.writer.current.value);
+        console.log(this.description.current.value);
+
         e.preventDefault();
         
     }
 
-    handleInputChange = e =>{
-        const name = e.target.name;
-        const value=e.target.value;
+    // handleInputChange = e =>{
+    //     const name = e.target.name;
+    //     const value=e.target.value;
 
-        this.setState({
-            [name]:value
-        })
-    }
+    //     this.setState({
+    //         [name]:value
+    //     })
+    // }
 
    
     render(){
@@ -37,15 +44,15 @@ class NewBook extends Component{
             <form action="" onSubmit={this.handleSubmit}>
                 <label>Book Name: </label>
                 <br />
-                <input type="text" name="bookName" value={this.state.bookName} onChange={(e) => this.handleInputChange(e)} />
+                <input type="text" name="bookName" ref={this.bookName}  />
                 <br />
                 <label>Writer:</label>
                 <br />
-                <input type="text" name="writer" value={this.state.writer} onChange={(e) => this.handleInputChange(e)}/>
+                <input type="text" name="writer" ref={this.writer} />
                 <br />
                 <label>Description: </label>
                 <br />
-                <textarea name="description"  cols="30" rows="10" value={this.state.description} onChange={(e) => this.handleInputChange(e)}></textarea>
+                <textarea name="description"  cols="30" rows="10" ref={this.description} ></textarea>
                 <br />
                 <input type="submit" value="submit" />
             </form>
